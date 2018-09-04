@@ -1,0 +1,39 @@
+start
+
+	messageData = [areaCode, phoneNumber, messageQty]
+	
+	area = 0
+	sentinelPresence = False
+	sentinel1 = "123"
+	sentinel2 = "1234567"
+	messages = 0
+	addBill = 0 
+	totalBill = 5	
+
+	while sentinelPresence == False:
+		messages += 1
+		area = int(input("Area Code: "))
+		while not len(area) == 3:
+			print("Please input only 3 digits")
+			area = int(input("Area Code: "))
+		messageData[areaCode] = area
+		if messageData[areaCode] == sentinel1:
+			sentinelPresence = True
+		phone = str(input("Phone Number: "))
+		while not len(phoneNumber) == 7:
+			print("Please input only 7 digits")
+			phone = str(input("Phone Number: "))
+		messageData[phoneNumber] == phone
+		if messageData[phoneNumber] == sentinel2:
+			sentinelPresence == True
+		
+	messageData[messageQty] == messages
+
+	if messageData[messageQty] > 100:
+		if finalBill > 20:		
+				print(messageData)
+		if sentinelPresence == True:
+			print(messageData)
+	else:
+		exit
+end

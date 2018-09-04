@@ -1,0 +1,38 @@
+start
+
+	addBill = 0
+	areaCode = 0
+	phoneNumber = 0
+	messageQty = 0
+	loopFunction = True
+	monthBill = 5 
+
+	messageData = [areaCode, phoneNumber, messageQty]
+
+	while loopFunction == True:
+		messageQty += 1
+		area = int(input("Area Code: "))
+		while not len(area) == 3:
+			print("Please input only 3 digits")
+			area = int(input("Area Code: "))
+		messageData[areaCode] = area
+		phone = str(input("Phone Number: "))
+		while not len(phone) == 7:
+			print("Please input only 7 digits")
+			phone = str(input("Phone Number: "))
+		messageData[phoneNumber] == phone
+
+	if messageQty > 60 && messageQty < 180:
+		addBill += 0.05 * messageData[messageQty]
+		monthBill += addBill
+	if messageQty > 180:
+		addBill += 0.1 * messageData[messageQty]
+		monthBill += addBill
+	
+	tax = monthBill * 0.12
+	monthBill += tax
+
+	print(messageData)
+	print(monthBill)
+
+end
