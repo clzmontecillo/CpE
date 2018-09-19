@@ -17,17 +17,27 @@ int main(){
 	*/
 	//std::cout << employeeData.is_open();
 	// Declare Three Variables
-	string name = "Pochi";
-	string address = "Manila";
+	//std::string name;
+	std::string address;
 	float payrate;
 	char str[50];
+	int numOfEmp = 0;
+	std::string name[50];
 	
+	// fetch entries
 	while(!employeeData.eof()){
 		employeeData.getline(str, 50, ';');
+		name[0] = str;			// save name to array of names
 		std::cout << str << std::endl;
 		employeeData.ignore(255, '\n');
+		numOfEmp++;
 	}
-	
+	// display names
+	int i = 0;
+	while(i < numOfEmp){
+		std::cout << name[i] << std::endl;
+		i++;
+	}
 	//std::cout << "\nFile Handling";
 	return 0;	
 }
