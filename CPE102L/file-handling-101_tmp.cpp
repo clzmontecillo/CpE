@@ -27,7 +27,7 @@ int main(){
 	// fetch entries
 	while(!employeeData.eof()){
 		employeeData.getline(str, 50, ';');
-		name[0] = str;			// save name to array of names
+		name[numOfEmp] = str;			// save name to array of names
 		std::cout << str << std::endl;
 		employeeData.ignore(255, '\n');
 		numOfEmp++;
