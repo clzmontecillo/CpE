@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
+#
+# NOTE
 # This script uses MD5 Hashing to verify if the first line of text inside a text file is a palindrome or not
+#
 
 import re
 import hashlib
