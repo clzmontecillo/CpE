@@ -29,9 +29,7 @@ def main():
 	def statusUpdate():
 		print(str(Board.top) + "\n" + str(Board.middle) + "\n" + str(Board.bottom))
 		print("Occupied Points: " + str(occupied))	
-		#print("P1 State: " + str(player1.win))
-		#print("CPU State: " + str(player2.win))
-
+		
 	# checks for winning sequences
 	def winCheck():
 		# horizontal patterns
@@ -50,7 +48,6 @@ def main():
 	
 	# reports game results
 	def winReport():
-		#print("ERROR: winReport() function is called")
 		if(player1.win == True):
 			print("\n\nWINNER: Player #1")
 			print(str(Board.top) + "\n" + str(Board.middle) + "\n" + str(Board.bottom))
@@ -117,11 +114,9 @@ def main():
 	try:
 		while True:
 			playerTurn()
-			#winCheck()
 			if winCheck():
 				break
 			oppTurn()
-			#winCheck()
 			if winCheck():
 				break
 			statusUpdate()
