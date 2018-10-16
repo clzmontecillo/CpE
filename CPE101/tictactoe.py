@@ -1,5 +1,12 @@
 #!/usr/bin/python3
 
+# Group Members:
+	# Cervantes, John Patrick
+	# Jacob, Joshua
+	# Laurenciano, Lorenz
+	# Muncal, Chris Jericho
+	# Pantoja, Pocholo
+	
 import random
 
 global firstGame
@@ -91,7 +98,7 @@ def main(firstGame):
 			return True
 		
 	
-	# reports game results
+	# reports game results once a winner has been found
 	# executes if winCheck() returns True
 	def winReport():
 		if(player1.win == True):
@@ -133,9 +140,13 @@ def main(firstGame):
 	# human player gameplay loop
 	def playerTurn():
 		while True:
+			# receive the player's input
 			turnInput = int(input("Player #1 Turn: "))
+			# check if turnInput is not within the 0-8 interval (out of bounds)
 			if(turnInput > 8 or turnInput < 0):
 				print("INVALID: Out of Bounds")
+			# the next elif statements will verify if turnInput corresponds to an occupied point or not
+			# marks the top array
 			elif(int(turnInput) <= 2 and int(turnInput) >= 0):
 				if(Board.top[int(turnInput)] == '0'):
 					Board.top[int(turnInput)] = player1.marker
@@ -143,6 +154,7 @@ def main(firstGame):
 					break
 				else:
 					print("INVALID: Occupied Point")
+			# marks the middle array
 			elif(int(turnInput) <= 5 and int(turnInput) >= 3):
 				turnInput = int(turnInput) - 3
 				if(Board.middle[int(turnInput)] == '0'):
@@ -151,6 +163,7 @@ def main(firstGame):
 					break
 				else:
 					print("INVALID: Occupied Point")
+			# marks the bottom array
 			elif(int(turnInput) <= 8) and int(turnInput >= 6):
 				turnInput = int(turnInput) - 6
 				if(Board.bottom[int(turnInput)] == '0'):
@@ -160,16 +173,13 @@ def main(firstGame):
 				else:
 					print("INVALID: Occupied Point")
 	
-	# reverts the board's state
+	# reverts the board's state back to its fresh state
 	def boardReset():
 		print("\n")
 		Board.top = ['0','0','0']
 		Board.middle = ['0','0','0']
 		Board.bottom = ['0','0','0']
 		print(str(Board.top) + "\n" + str(Board.middle) + "\n" + str(Board.bottom))	
-		#player1.win = False
-		#player2.win = False
-		#main(firstGame)
 	
 	# main gameplay loop
 	try:
@@ -187,5 +197,7 @@ def main(firstGame):
 	except KeyboardInterrupt:
 		print("\n\nSession Terminated.")
 
+# set to False by the time main() is called to prevent reiteration of the game instructions
+# this opens an opportunity for the game to continue after a single round
 firstGame = False
 main(firstGame)
